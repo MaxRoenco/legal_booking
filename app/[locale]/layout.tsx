@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Inter, Playfair_Display } from "next/font/google";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import SiteJsonLd from "./_components/SiteJsonLd";
 import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
@@ -125,6 +126,8 @@ export default async function RootLayout({
             />
         </noscript>
         {/* End GTM NoScript */}
+
+        <SiteJsonLd locale={locale} />
 
         <LazyMotion features={domAnimation}>
             <NextIntlClientProvider>
