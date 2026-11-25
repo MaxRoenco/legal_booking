@@ -8,8 +8,8 @@
     "testing": "romanian"
   },
   "homeHero": {
-    "title": "Servicii legale rapide, clare și fără complicații",
-    "description": "Suntem alături de afacerea ta cu soluții juridice moderne: consultanță online, contracte personalizate, înregistrări rapide și suport complet pe bază de abonament.",
+    "title": "Servicii juridice rapide și clare în Moldova",
+    "description": "Suntem alături de afacerea ta cu soluții juridice moderne: consultanță juridică online, contracte personalizate, înregistrare rapidă a firmei și suport complet pe bază de abonament.",
     "seeServices": "Vezi servicii",
     "callNow": "sună acum 060 366 664",
     "contact": "Contactează-ne",
@@ -32,7 +32,7 @@
     "consultationAlt": "consultație online"
   },
   "services": {
-    "title": "Serviciile noastre",
+    "title": "Serviciile noastre juridice",
     "description": "Găsești tot sprijinul juridic de care ai nevoie, într-un singur loc. Indiferent dacă ai nevoie de asistență pentru documente, reprezentare în instanță sau sprijin rapid online — echipa noastră este gata să intervină.",
     "items": [
       {
