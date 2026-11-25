@@ -19,7 +19,7 @@ export default function ContactCta() {
             >
                 {t("requestConsultation")}
             </button>
-            <a href="tel:+37360366664" className="text-white hover:text-[#D2DE32] transition-colors">
+            <a href="tel:+37360366660" className="text-white hover:text-[#D2DE32] transition-colors">
                 {t("callNow")}
             </a>
             <AnimatePresence>

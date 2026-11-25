@@ -44,7 +44,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-5 items-center">
           <div className="flex items-center gap-10 align-middle text-center">
-            <a href="tel:+37360366664" className="box-border border-1 button-animation border-white text-white rounded-full px-8 py-5 font-semibold text-sm">
+            <a href="tel:+37360366660" className="box-border border-1 button-animation border-white text-white rounded-full px-8 py-5 font-semibold text-sm">
               {t('phone')}
             </a>
             <div onClick={() => setModalOpen(true)} className="max-[690px]:hidden button-animation box-border border-1 border-white bg-white text-[#003D35] rounded-full px-8 py-5 font-semibold text-sm align-middle text-center">
