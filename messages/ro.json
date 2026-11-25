@@ -234,5 +234,22 @@
   "dropzone": {
     "browse": "Atașați fișierele aici pentru",
     "dragFiles": "încărcare"
+  },
+  "pages": {
+    "home": "Acasă",
+    "services": "Servicii",
+    "articles": "Articole",
+    "breadcrumbLabel": "Navigare",
+    "requestConsultation": "Cere o consultație",
+    "callNow": "sună acum 060 366 664",
+    "howWeWork": "Cum lucrăm",
+    "faqTitle": "Întrebări frecvente",
+    "relatedServices": "Servicii conexe",
+    "allServices": "Toate serviciile",
+    "learnMore": "Află mai multe",
+    "servicesIndexTitle": "Servicii juridice în Moldova",
+    "servicesIndexIntro": "De la înregistrarea firmei și redactarea contractelor până la reprezentarea în instanță – aici găsești serviciile noastre juridice pentru afaceri și persoane fizice.",
+    "servicesMetaTitle": "Servicii juridice în Moldova | JuristOnline.md",
+    "servicesMetaDescription": "Înregistrare și lichidare SRL, contracte, reprezentare în instanță, mărci la AGEPI, dreptul familiei și abonament juridic pentru firme."
   }
 }

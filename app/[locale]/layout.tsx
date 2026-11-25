@@ -9,7 +9,7 @@ import SiteJsonLd from "./_components/SiteJsonLd";
 import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
 
 const inter = Inter({
     subsets: ["latin", "cyrillic"],
@@ -21,14 +21,7 @@ const playfair = Playfair_Display({
     variable: "--font-playfair",
 });
 
-const OG_IMAGE = "/og-image.jpg";
-
-// Open Graph folosește formatul limba_ȚARA
-const OG_LOCALES: Record<string, string> = {
-    ro: "ro_MD",
-    ru: "ru_MD",
-};
-
+// Metadata pentru pagina principală; subpaginile își suprascriu propria metadata
 export async function generateMetadata({
     params,
 }: {
@@ -40,48 +33,16 @@ export async function generateMetadata({
         : routing.defaultLocale;
     const t = await getTranslations({ locale, namespace: "metadata" });
 
-    const title = t("title");
-    const description = t("description");
-
     return {
-        metadataBase: new URL(SITE_URL),
-        title,
-        description,
+        ...buildPageMetadata({
+            locale,
+            path: "",
+            title: t("title"),
+            description: t("description"),
+            ogImageAlt: t("ogImageAlt"),
+        }),
         icons: {
             icon: "/favicon.ico",
-        },
-        // canonical + hreflang: /ro și /ru sunt aceeași pagină în limbi diferite
-        alternates: {
-            canonical: `/${locale}`,
-            languages: {
-                ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])),
-                "x-default": `/${routing.defaultLocale}`,
-            },
-        },
-        openGraph: {
-            type: "website",
-            url: `/${locale}`,
-            siteName: SITE_NAME,
-            title,
-            description,
-            locale: OG_LOCALES[locale],
-            alternateLocale: routing.locales
-                .filter((l) => l !== locale)
-                .map((l) => OG_LOCALES[l]),
-            images: [
-                {
-                    url: OG_IMAGE,
-                    width: 1200,
-                    height: 630,
-                    alt: t("ogImageAlt"),
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title,
-            description,
-            images: [OG_IMAGE],
         },
     };
 }
