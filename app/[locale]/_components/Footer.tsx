@@ -10,7 +10,7 @@ import { Link as LocaleLink } from "@/i18n/navigation"
 
 export type FooterLink = { href: string; title: string }
 
-export default function Footer({ serviceLinks }: { serviceLinks: FooterLink[] }) {
+export default function Footer({ serviceLinks, articleLinks }: { serviceLinks: FooterLink[]; articleLinks: FooterLink[] }) {
     const t = useTranslations("footer");
     const tPages = useTranslations("pages");
     const [modalOpen, setModalOpen] = useState(false)
@@ -71,6 +71,20 @@ export default function Footer({ serviceLinks }: { serviceLinks: FooterLink[] })
                     </LocaleLink>
                     <ul className="grid grid-cols-2 max-[800px]:grid-cols-1 gap-x-10 gap-y-2 mt-3 max-w-[820px]">
                         {serviceLinks.map((link) => (
+                            <li key={link.href}>
+                                <LocaleLink href={link.href} className="text-[#ffffff7e] text-[15px] hover:text-[#D2DE32] transition-colors">
+                                    {link.title}
+                                </LocaleLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                <nav aria-label={tPages("articles")}>
+                    <LocaleLink href="/articole" className="text-white font-semibold hover:text-[#D2DE32] transition-colors">
+                        {tPages("articles")}
+                    </LocaleLink>
+                    <ul className="flex flex-col gap-2 mt-3 max-w-[820px]">
+                        {articleLinks.map((link) => (
                             <li key={link.href}>
                                 <LocaleLink href={link.href} className="text-[#ffffff7e] text-[15px] hover:text-[#D2DE32] transition-colors">
                                     {link.title}

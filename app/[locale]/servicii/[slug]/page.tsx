@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { getArticles } from "@/lib/content/articles";
 import { getService } from "@/lib/content/services";
 import { SITE_URL } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/seo";
@@ -41,6 +42,7 @@ export default async function ServicePage({ params }: Props) {
     const related = service.related
         .map((slug) => getService(locale, slug))
         .filter((item) => item !== undefined);
+    const articles = getArticles(locale).filter((article) => article.relatedService === service.slug);
 
     return (
         <main>
@@ -77,6 +79,25 @@ export default async function ServicePage({ params }: Props) {
                     </section>
 
                     <FaqSection title={t("faqTitle")} items={service.faq} />
+
+                    {articles.length > 0 && (
+                        <section>
+                            <h2 className="font-playfair text-[#1B1E21] text-4xl max-md:text-3xl font-bold mb-6">
+                                {t("usefulArticles")}
+                            </h2>
+                            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5">
+                                {articles.map((article) => (
+                                    <LinkCard
+                                        key={article.slug}
+                                        href={`/articole/${article.slug}`}
+                                        title={article.title}
+                                        text={article.summary}
+                                        linkLabel={t("readArticle")}
+                                    />
+                                ))}
+                            </div>
+                        </section>
+                    )}
 
                     {related.length > 0 && (
                         <section>

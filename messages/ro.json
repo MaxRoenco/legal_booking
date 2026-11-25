@@ -250,6 +250,16 @@
     "servicesIndexTitle": "Servicii juridice în Moldova",
     "servicesIndexIntro": "De la înregistrarea firmei și redactarea contractelor până la reprezentarea în instanță – aici găsești serviciile noastre juridice pentru afaceri și persoane fizice.",
     "servicesMetaTitle": "Servicii juridice în Moldova | JuristOnline.md",
-    "servicesMetaDescription": "Înregistrare și lichidare SRL, contracte, reprezentare în instanță, mărci la AGEPI, dreptul familiei și abonament juridic pentru firme."
+    "servicesMetaDescription": "Înregistrare și lichidare SRL, contracte, reprezentare în instanță, mărci la AGEPI, dreptul familiei și abonament juridic pentru firme.",
+    "articlesIndexTitle": "Articole și ghiduri juridice",
+    "articlesIndexIntro": "Răspunsuri clare la întrebările juridice pe care ni le pun cel mai des clienții: despre firme, contracte și familie.",
+    "articlesMetaTitle": "Articole și ghiduri juridice | JuristOnline.md",
+    "articlesMetaDescription": "Ghiduri juridice pentru Moldova: cum deschizi un SRL, SRL sau ÎI, divorțul la Starea Civilă sau în instanță și alte întrebări frecvente.",
+    "readArticle": "Citește articolul",
+    "author": "Autor",
+    "published": "Publicat",
+    "disclaimer": "Informațiile din acest articol au caracter general și nu înlocuiesc o consultație juridică pentru situația ta concretă.",
+    "relatedServiceTitle": "Te putem ajuta",
+    "usefulArticles": "Articole utile"
   }
 }
