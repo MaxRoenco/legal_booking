@@ -6,8 +6,9 @@ import { Inter, Playfair_Display } from "next/font/google";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import SiteJsonLd from "./_components/SiteJsonLd";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Script from "next/script";
+import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/seo";
 import { getArticles } from "@/lib/content/articles";
@@ -49,25 +50,32 @@ export async function generateMetadata({
     };
 }
 
+// /ro și /ru se generează la build, ca pagini statice
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
                                              children,
+                                             params,
                                          }: {
     children: React.ReactNode;
+    params: Promise<{ locale: string }>;
 }) {
-    const locale = await getLocale();
+    const { locale } = await params;
+    if (!hasLocale(routing.locales, locale)) notFound();
+    // limba vine din URL, nu din headere, deci paginile pot fi randate static
+    setRequestLocale(locale);
+
     // doar titlul și adresa fiecărei pagini ajung în footer (client), nu tot conținutul
-    const serviceLinks = hasLocale(routing.locales, locale)
-        ? getServices(locale).map((service) => ({
-            href: `/servicii/${service.slug}`,
-            title: service.title,
-        }))
-        : [];
-    const articleLinks = hasLocale(routing.locales, locale)
-        ? getArticles(locale).map((article) => ({
-            href: `/articole/${article.slug}`,
-            title: article.title,
-        }))
-        : [];
+    const serviceLinks = getServices(locale).map((service) => ({
+        href: `/servicii/${service.slug}`,
+        title: service.title,
+    }));
+    const articleLinks = getArticles(locale).map((article) => ({
+        href: `/articole/${article.slug}`,
+        title: article.title,
+    }));
 
     return (
         <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>

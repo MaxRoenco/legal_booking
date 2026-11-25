@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getArticle } from "@/lib/content/articles";
+import { getArticle, getArticles } from "@/lib/content/articles";
 import { getService } from "@/lib/content/services";
 import { SITE_URL } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/seo";
@@ -17,9 +17,15 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 
 const DATE_LOCALES: Record<string, string> = { ro: "ro-MD", ru: "ru-MD" };
 
+// toate articolele se generează la build, pentru fiecare limbă
+export function generateStaticParams() {
+    return getArticles(routing.defaultLocale).map((article) => ({ slug: article.slug }));
+}
+
 async function loadArticle(params: Props["params"]) {
     const { locale, slug } = await params;
     if (!hasLocale(routing.locales, locale)) notFound();
+    setRequestLocale(locale);
     const article = getArticle(locale, slug);
     if (!article) notFound();
     return { locale, article };

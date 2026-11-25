@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { getArticles } from "@/lib/content/articles";
 import { SITE_URL } from "@/lib/site";
@@ -15,6 +15,7 @@ type Props = { params: Promise<{ locale: string }> };
 async function resolveLocale(params: Props["params"]) {
     const { locale } = await params;
     if (!hasLocale(routing.locales, locale)) notFound();
+    setRequestLocale(locale);
     return locale;
 }
 

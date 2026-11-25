@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { getArticles } from "@/lib/content/articles";
-import { getService } from "@/lib/content/services";
+import { getService, getServices } from "@/lib/content/services";
 import { SITE_URL } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/seo";
 import ContentSections from "../../_components/ContentSections";
@@ -15,9 +15,15 @@ import PageHero from "../../_components/PageHero";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
+// toate serviciile se generează la build, pentru fiecare limbă
+export function generateStaticParams() {
+    return getServices(routing.defaultLocale).map((service) => ({ slug: service.slug }));
+}
+
 async function loadService(params: Props["params"]) {
     const { locale, slug } = await params;
     if (!hasLocale(routing.locales, locale)) notFound();
+    setRequestLocale(locale);
     const service = getService(locale, slug);
     if (!service) notFound();
     return { locale, service };
