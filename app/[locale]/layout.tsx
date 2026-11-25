@@ -10,6 +10,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/seo";
+import { getServices } from "@/lib/content/services";
 
 const inter = Inter({
     subsets: ["latin", "cyrillic"],
@@ -53,6 +54,13 @@ export default async function RootLayout({
     children: React.ReactNode;
 }) {
     const locale = await getLocale();
+    // doar titlul și adresa fiecărui serviciu ajung în footer (client), nu tot conținutul
+    const serviceLinks = hasLocale(routing.locales, locale)
+        ? getServices(locale).map((service) => ({
+            href: `/servicii/${service.slug}`,
+            title: service.title,
+        }))
+        : [];
 
     return (
         <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
@@ -94,7 +102,7 @@ export default async function RootLayout({
             <NextIntlClientProvider>
                 <Header />
                 {children}
-                <Footer />
+                <Footer serviceLinks={serviceLinks} />
             </NextIntlClientProvider>
         </LazyMotion>
 

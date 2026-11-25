@@ -6,9 +6,13 @@ import { useTranslations } from "next-intl"
 import { AnimatePresence } from "motion/react";
 import { useState } from "react";
 import FormModal from './FormModal'
+import { Link as LocaleLink } from "@/i18n/navigation"
 
-export default function Footer() {
+export type FooterLink = { href: string; title: string }
+
+export default function Footer({ serviceLinks }: { serviceLinks: FooterLink[] }) {
     const t = useTranslations("footer");
+    const tPages = useTranslations("pages");
     const [modalOpen, setModalOpen] = useState(false)
 
     return (
@@ -61,6 +65,20 @@ export default function Footer() {
                     <LanguageSwitcher className="absolute top-[35%] right-[30%] min-[690px]:hidden" />
                 </div>
                 <p className="text-[#ffffff7e] w-[420px] max-[600px]:w-auto text-wrap">{t("footerDescription")}</p>
+                <nav aria-label={tPages("services")}>
+                    <LocaleLink href="/servicii" className="text-white font-semibold hover:text-[#D2DE32] transition-colors">
+                        {tPages("services")}
+                    </LocaleLink>
+                    <ul className="grid grid-cols-2 max-[800px]:grid-cols-1 gap-x-10 gap-y-2 mt-3 max-w-[820px]">
+                        {serviceLinks.map((link) => (
+                            <li key={link.href}>
+                                <LocaleLink href={link.href} className="text-[#ffffff7e] text-[15px] hover:text-[#D2DE32] transition-colors">
+                                    {link.title}
+                                </LocaleLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
                 <div className="flex items-center gap-4">
                     <a
                         href="https://www.instagram.com/juristonline.md/"
