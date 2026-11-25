@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { domAnimation, LazyMotion } from "motion/react";
 import "./globals.css";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Inter, Playfair_Display } from "next/font/google";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
+import { routing } from "@/i18n/routing";
 
 const inter = Inter({
     subsets: ["latin", "cyrillic"],
@@ -18,14 +19,72 @@ const playfair = Playfair_Display({
     variable: "--font-playfair",
 });
 
-export const metadata: Metadata = {
-    title: "Consultanță juridică online în Moldova.",
-    description:
-        "JuristOnline.md – răspunsuri legale rapide, sigure și la preț concret.",
-    icons: {
-        icon: "/favicon.ico",
-    },
+const SITE_URL = "https://juristonline.md";
+const SITE_NAME = "JuristOnline.md";
+const OG_IMAGE = "/og-image.jpg";
+
+// Open Graph folosește formatul limba_ȚARA
+const OG_LOCALES: Record<string, string> = {
+    ro: "ro_MD",
+    ru: "ru_MD",
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const requested = (await params).locale;
+    const locale = hasLocale(routing.locales, requested)
+        ? requested
+        : routing.defaultLocale;
+    const t = await getTranslations({ locale, namespace: "metadata" });
+
+    const title = t("title");
+    const description = t("description");
+
+    return {
+        metadataBase: new URL(SITE_URL),
+        title,
+        description,
+        icons: {
+            icon: "/favicon.ico",
+        },
+        // canonical + hreflang: /ro și /ru sunt aceeași pagină în limbi diferite
+        alternates: {
+            canonical: `/${locale}`,
+            languages: {
+                ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])),
+                "x-default": `/${routing.defaultLocale}`,
+            },
+        },
+        openGraph: {
+            type: "website",
+            url: `/${locale}`,
+            siteName: SITE_NAME,
+            title,
+            description,
+            locale: OG_LOCALES[locale],
+            alternateLocale: routing.locales
+                .filter((l) => l !== locale)
+                .map((l) => OG_LOCALES[l]),
+            images: [
+                {
+                    url: OG_IMAGE,
+                    width: 1200,
+                    height: 630,
+                    alt: t("ogImageAlt"),
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [OG_IMAGE],
+        },
+    };
+}
 
 export default async function RootLayout({
                                              children,
