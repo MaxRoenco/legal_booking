@@ -8,16 +8,16 @@ export default function WhyChooseUs({ scrollToServices } : {scrollToServices: ()
         <div className="py-20 bg-white grid grid-cols-2 items-start max-[900px]:grid-cols-1 max-[900px]:items-center max-[900px]:gap-10">
             <Image src={t("imageSrc")} width={860} height={880} alt={t("imageAlt")} className="w-full max-[900px]:w-[90%] h-auto" />
             <div className="pr-[15%] max-[1150px]:pr-[5%] max-[900px]:p-[5%]">
-                <p className="font-bold text-[50px] font-playfair text-[#1B1E21] max-[900px]:text-center max-[690px]:text-[30px]">
+                <h2 className="font-bold text-[50px] font-playfair text-[#1B1E21] max-[900px]:text-center max-[690px]:text-[30px]">
                   {t("title")}
-                </p>
+                </h2>
                 <p className="font-inter text-[#3F4242] mb-8 max-[900px]:text-center">
                   {t("description")}
                 </p>
                 <div className="flex font-inter text-[#1B1E21] gap-5 mb-4 max-[900px]:hidden">
                   {Array.from({length: 2}).map((_, idx) => (
                     <p className="flex gap-3" key={idx}>
-                        <Image src="/svgs/check.svg" width={24} height={24} alt={t("iconAlt")} />
+                        <Image src="/svgs/check.svg" width={24} height={24} alt="" />
                         {t(`highlights.${idx}`)}
                     </p>
                   ))}
@@ -25,7 +25,7 @@ export default function WhyChooseUs({ scrollToServices } : {scrollToServices: ()
                 <div className="flex font-inter text-[#1B1E21] gap-5 max-[900px]:hidden">
                   {Array.from({length: 2}).map((_, idx) => (
                     <p className="flex gap-3 text-[16px]" key={idx}>
-                        <Image src="/svgs/check.svg" width={24} height={24} alt={t("iconAlt")} />
+                        <Image src="/svgs/check.svg" width={24} height={24} alt="" />
                         {t(`highlights.${idx+2}`)}
                     </p>
                   ))}

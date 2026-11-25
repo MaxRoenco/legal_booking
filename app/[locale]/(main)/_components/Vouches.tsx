@@ -10,9 +10,9 @@ export default function Vouches() {
 
     return (
         <div className='flex flex-col justify-center items-center py-20 w-full relative overflow-hidden'>
-            <p className='text-[50px] font-playfair font-bold text-white text-center mb-10 max-[550px]:text-[35px]'>
+            <h2 className='text-[50px] font-playfair font-bold text-white text-center mb-10 max-[550px]:text-[35px]'>
                 {t('title')}
-            </p>
+            </h2>
             <div className='absolute bg-[#002C26] w-[500px] h-[1000px] rounded-full bottom-[-75%] right-0 -z-10 opacity-30'></div>
             <div className='absolute bg-[#002C26] w-[500px] h-[1000px] rounded-full top-[-75%] left-0 -z-10 opacity-30'></div>
             <div className='absolute border-1 border-[#D2DE32] w-[500px] h-[1000px] rounded-full top-[-72%] left-[2%] -z-10 opacity-30'></div>

@@ -30,14 +30,14 @@ export default function Footer() {
 
                         <div className="flex flex-col gap-10 mt-10 mb-20">
                             <div className="flex items-start gap-3">
-                                <Image src="/svgs/phone.svg" width={24} height={24} alt={t("phoneIconAlt")} />
+                                <Image src="/svgs/phone.svg" width={24} height={24} alt="" />
                                 <div>
                                     <p className="text-[#ffffffaa] font-inter text-[14px]">{t("callUs")}</p>
                                     <p className="text-white font-playfair text-[16px] font-bold">{t("phoneNumber")}</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
-                                <Image src="/svgs/letter.svg" width={24} height={24} alt={t("mailIconAlt")} />
+                                <Image src="/svgs/letter.svg" width={24} height={24} alt="" />
                                 <div>
                                     <p className="text-[#ffffffaa] font-inter text-[14px]">{t("mailUs")}</p>
                                     <p className="text-white font-playfair text-[16px] font-bold">{t("email")}</p>

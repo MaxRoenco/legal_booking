@@ -16,9 +16,9 @@ const Team = ({ scrollToServices } : {scrollToServices: () => void}) => {
         />
       </div>
       <div className={cn("flex flex-col gap-8 px-[100px] mt-10 justify-center h-[600px] relative z-10", "max-md:px-4 max-lg:mt-0")}>
-        <h1 className={cn("text-6xl text-white font-bold text-left", "max-xl:text-4xl max-md:text-3xl max-lg:text-center")}>
+        <h2 className={cn("text-6xl text-white font-bold text-left", "max-xl:text-4xl max-md:text-3xl max-lg:text-center")}>
           {t("title")}
-        </h1>
+        </h2>
         <p className={cn("text-base text-start text-white/60 font-inter", "max-xl:text-sm max-lg:text-center")}>
           {t("description")}
         </p>
@@ -27,7 +27,7 @@ const Team = ({ scrollToServices } : {scrollToServices: () => void}) => {
             <li key={idx} className="text-white text-start flex gap-2 items-center">
                 <Image 
                     src="/svgs/star.svg"
-                    alt={t("starAlt")}
+                    alt=""
                     width={20}
                     height={20}
                 />
@@ -44,7 +44,7 @@ const Team = ({ scrollToServices } : {scrollToServices: () => void}) => {
       </div>
       <Image 
         src="/images/lines2.png"
-        alt={t("linesAlt")}
+        alt=""
         width={650}
         height={650}
         className={cn("absolute top-[920px] right-[0px]", "max-xl:hidden")}

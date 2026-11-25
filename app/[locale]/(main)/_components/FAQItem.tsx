@@ -10,7 +10,7 @@ const FAQItem = ({question, answer}: FAQType) => {
             src="/svgs/question.svg"
             width={50}
             height={50}
-            alt="question mark"
+            alt=""
             className="items-center justify-center w-10 h-10 mt-1"
         />
         <div className="flex flex-col gap-2">

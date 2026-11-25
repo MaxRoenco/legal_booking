@@ -2,9 +2,12 @@
 
 import { Modal } from "@mui/material";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import Form from "./Form"
 import * as m from 'motion/react-m';
+import { SITE_NAME } from "@/lib/site";
 const TalkModal = ({ setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
+    const t = useTranslations("contactForm");
     return (
         <Modal
             slotProps={{
@@ -30,14 +33,14 @@ const TalkModal = ({ setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<R
                         src="/svgs/formLogo.svg"
                         width={74}
                         height={74}
-                        alt="logo"
+                        alt={SITE_NAME}
                     />
                     <Image
                         src="/svgs/cross.svg"
                         width={13}
                         height={13}
                         className="cursor-pointer"
-                        alt="close"
+                        alt={t("close")}
                         onClick={() => setIsOpen(false)}
                     />
                 </div>

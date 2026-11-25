@@ -2,9 +2,11 @@ import { ReactElement, useState } from "react"
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 import { cn } from "@/lib/utils"
 
 export default function Carousel({ slides }: { slides: ReactElement[] }) {
+    const t = useTranslations("vouches")
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const [sliderRef, instanceRef] = useKeenSlider(
@@ -27,7 +29,7 @@ export default function Carousel({ slides }: { slides: ReactElement[] }) {
             src="/svgs/rightArrow.svg"
             height={25}
             width={15}
-            alt="right arrow"
+            alt={t("next")}
             className="absolute top-[50%] right-[15%] cursor-pointer max-[500px]:right-[5%]"
         />
         <Image
@@ -35,7 +37,7 @@ export default function Carousel({ slides }: { slides: ReactElement[] }) {
             src="/svgs/leftArrow.svg"
             height={25}
             width={15}
-            alt="right arrow"
+            alt={t("previous")}
             className="absolute top-[50%] left-[15%] cursor-pointer max-[500px]:left-[5%]"
         />
         <div className="absolute flex gap-5 bottom-0 left-1/2 -translate-x-1/2">

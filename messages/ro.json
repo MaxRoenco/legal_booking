@@ -13,8 +13,7 @@
     "seeServices": "Vezi servicii",
     "callNow": "sună acum 060 366 664",
     "contact": "Contactează-ne",
-    "imageAlt": "imagine principală",
-    "linesAlt": "decor linii",
+    "imageAlt": "Jurist – consultanță juridică online în Moldova",
     "imageSrc": "/images/homero.png"
   },
   "teamHero": {
@@ -29,10 +28,8 @@
     "seeServices": "Vezi servicii",
     "callNow": "sună acum 060 366 664",
     "consultation": "Online consultație!",
-    "imageAlt": "echipa",
-    "consultationAlt": "consultație online",
-    "linesAlt": "linii decorative",
-    "starAlt": "stea"
+    "imageAlt": "Juriști discutând documente cu un client",
+    "consultationAlt": "consultație online"
   },
   "services": {
     "title": "Serviciile noastre",
@@ -105,8 +102,7 @@
     ],
     "seeServices": "Vezi servicii",
     "callNow": "sună acum 060 366 664",
-    "imageAlt": "întâlnire de afaceri",
-    "iconAlt": "bifat",
+    "imageAlt": "Juriști la o întâlnire cu o clientă – 15 ani de experiență, 99% rată de succes",
     "imageSrc": "/images/meetingro.png"
   },
   "vouches": {
@@ -137,7 +133,9 @@
         "text": "„Am avut plăcerea de a colabora cu echipa LegalBooking și pot afirma cu încredere că sunt printre cei mai buni din domeniu. Profesionalismul, dedicarea și soluțiile clare oferite mi-au depășit așteptările. Sunt recunoscător pentru sprijinul lor constant.”",
         "title": "Andrei M., antreprenor"
       }
-    ]
+    ],
+    "next": "Recomandarea următoare",
+    "previous": "Recomandarea anterioară"
   },
   "faq": {
     "title": "Întrebări frecvente",
@@ -169,16 +167,14 @@
     ]
   },
   "header": {
-    "logoAlt": "siglă",
+    "logoAlt": "JuristOnline.md",
     "phone": "060 366 664",
     "contactBtn": "Contactează-ne"
   },
   "footer": {
-    "pfpAlt": "poza profil advokat",
+    "pfpAlt": "Veaceslav Soltan, jurist JuristOnline.md",
     "profileName": "Veaceslav Soltan",
     "profileRole": "Jurist",
-    "phoneIconAlt": "icon telefon",
-    "mailIconAlt": "icon scrisoare",
     "callUs": "Sună-ne:",
     "mailUs": "Scrie-ne:",
     "phoneNumber": "060 366 664",
@@ -186,9 +182,9 @@
     "ctaTitle": "Vorbește cu un jurist chiar astăzi",
     "ctaDescription": "Ai o întrebare juridică?\nProgramează o consultație și primește răspuns rapid de la echipa noastră.",
     "contactBtn": "Contactează-ne",
-    "logoAlt": "sigla footer",
+    "logoAlt": "JuristOnline.md",
     "footerDescription": "Oferim soluții juridice rapide și eficiente pentru afacerea ta. Consultanță, redactare acte, înregistrări și reprezentare — totul într-un singur loc.",
-    "instagramAlt": "logo instagram",
+    "instagramAlt": "Instagram JuristOnline.md",
     "copyRight": "© 2026 Legalbooking. Toate drepturile sunt rezervate. <link>Creat de Quant-Apps.</link>"
   },
   "contactForm": {
@@ -228,7 +224,8 @@
     "notifications": {
       "success": "Formular trimis cu succes!",
       "error": "Trimiterea formularului a eșuat. Vă rugăm să încercați din nou."
-    }
+    },
+    "close": "Închide formularul"
   },
   "formAlert": {
     "success": "Am primit mesajul tău! Echipa noastră îți va răspunde în cel mai scurt timp.",

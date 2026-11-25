@@ -121,7 +121,7 @@ const Dropzone = ({ onDrop }: { onDrop: (files: File[]) => void }): ReactElement
           onChange={(e: ChangeEvent<HTMLInputElement>) => handleFiles(e.target.files)}
           accept=".png,.jpg,.jpeg,.pdf,.doc,.docx"
         />
-        <Image src="/svgs/paper_clip.svg" width={18} height={19} alt="upload attachments paper clip"/>
+        <Image src="/svgs/paper_clip.svg" width={18} height={19} alt=""/>
         <p className="text-[12px] text-[#C1C1C1] mt-[6px] font-playfair">
           {t('dragFiles')} <span className='text-[#003D35] font-bold'>{t('browse')}</span>
         </p>

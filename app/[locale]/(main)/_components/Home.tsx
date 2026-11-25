@@ -42,7 +42,7 @@ const Home = ({ scrollToServices } : {scrollToServices: () => void}) => {
       </div>
       <Image
         src="/images/lines1.png"
-        alt={t("linesAlt")}
+        alt=""
         width={500}
         height={500}
         className={cn("absolute top-[0px] left-[-200px]", "max-xl:hidden")}
