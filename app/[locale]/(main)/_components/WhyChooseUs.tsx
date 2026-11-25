@@ -6,7 +6,7 @@ export default function WhyChooseUs({ scrollToServices } : {scrollToServices: ()
 
     return (
         <div className="py-20 bg-white grid grid-cols-2 items-start max-[900px]:grid-cols-1 max-[900px]:items-center max-[900px]:gap-10">
-            <Image src={t("imageSrc")} width={860} height={880} alt={t("imageAlt")} className="w-full max-[900px]:w-[90%] h-auto" />
+            <Image src={t("imageSrc")} width={860} height={880} alt={t("imageAlt")} sizes="(max-width: 900px) 90vw, 50vw" className="w-full max-[900px]:w-[90%] h-auto" />
             <div className="pr-[15%] max-[1150px]:pr-[5%] max-[900px]:p-[5%]">
                 <h2 className="font-bold text-[50px] font-playfair text-[#1B1E21] max-[900px]:text-center max-[690px]:text-[30px]">
                   {t("title")}

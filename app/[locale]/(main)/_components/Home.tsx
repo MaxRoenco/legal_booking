@@ -37,6 +37,10 @@ const Home = ({ scrollToServices } : {scrollToServices: () => void}) => {
           alt={t("imageAlt")}
           width={700}
           height={700}
+          // imaginea LCP: se încarcă imediat, cu prioritate, la lățimea afișată
+          priority
+          fetchPriority="high"
+          sizes="(max-width: 640px) 320px, (max-width: 767px) 400px, 700px"
           className={cn("z-10 lg:min-w-[500px]", "max-md:max-w-[400px] max-sm:max-w-[320px] max-[450px]:max-w-[300px] max-md:mt-0 max-sm:mb-0 max-lg:static max-lg:left-0 max-lg:top-0")}
         />
       </div>

@@ -12,6 +12,7 @@ const Team = ({ scrollToServices } : {scrollToServices: () => void}) => {
           alt={t("imageAlt")}
           width={600}
           height={500}
+          sizes="(max-width: 640px) 320px, (max-width: 767px) 500px, 600px"
           className={cn("max-xl:mt-20 max-md:max-w-[500px] max-sm:max-w-[320px] max-[450px]:max-w-[300px] max-md:mt-0 max-sm:mb-10")}
         />
       </div>
