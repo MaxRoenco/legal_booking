@@ -8,6 +8,7 @@ import Footer from "./_components/Footer";
 import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const inter = Inter({
     subsets: ["latin", "cyrillic"],
@@ -19,8 +20,6 @@ const playfair = Playfair_Display({
     variable: "--font-playfair",
 });
 
-const SITE_URL = "https://juristonline.md";
-const SITE_NAME = "JuristOnline.md";
 const OG_IMAGE = "/og-image.jpg";
 
 // Open Graph folosește formatul limba_ȚARA
